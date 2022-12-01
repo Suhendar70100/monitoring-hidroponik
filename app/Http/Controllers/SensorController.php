@@ -13,20 +13,28 @@ class SensorController extends Controller
     {
         $suhu = DB::table('data')->select('suhu')->get();
         $kelembaban = DB::table('data')->select('kelembaban')->get();
+        $nilaiPh = DB::table('data')->select('nilai_ph')->get();
 
-        $valsuhu = [];
-        $valkelembaban = [];
+        $valSuhu = [];
+        $valKelembaban = [];
+        $valPh = [];
 
         foreach ($kelembaban as $val) {
-            $valkelembaban[] = $val->kelembaban;
+            $valKelembaban[] = $val->kelembaban;
         }
 
         foreach ($suhu as $val) {
-            $valsuhu[] = $val->suhu;
+            $valSuhu[] = $val->suhu;
         }
+
+        foreach ($nilaiPh as $val) {
+            $valPh[] = $val->nilai_ph;
+        }
+
         $data = [
-            'suhu' => $valsuhu,
-            'kelembaban' => $valkelembaban
+            'suhu' => $valSuhu,
+            'kelembaban' => $valKelembaban,
+            'nilai' => $valPh
         ];
         return view('ajax.index', $data);
     }
@@ -42,21 +50,28 @@ class SensorController extends Controller
     {
         $suhu = DB::table('data')->select('suhu')->get();
         $kelembaban = DB::table('data')->select('kelembaban')->get();
+        $nilaiPh = DB::table('data')->select('nilai_ph')->get();
 
-        $valsuhu = [];
-        $valkelembaban = [];
+        $valSuhu = [];
+        $valKelembaban = [];
+        $valPh = [];
 
         foreach ($kelembaban as $val) {
-            $valkelembaban[] = $val->kelembaban;
+            $valKelembaban[] = $val->kelembaban;
         }
 
         foreach ($suhu as $val) {
-            $valsuhu[] = $val->suhu;
+            $valSuhu[] = $val->suhu;
+        }
+
+        foreach ($nilaiPh as $val) {
+            $valPh[] = $val->nilai_ph;
         }
         return json_encode([
             'status'    => 200,
-            'suhu'      => $valsuhu,
-            'kelembaban' => $valkelembaban
+            'suhu'      => $valSuhu,
+            'kelembaban' => $valKelembaban,
+            'nilai'     => $valPh
         ]);
     }
 }

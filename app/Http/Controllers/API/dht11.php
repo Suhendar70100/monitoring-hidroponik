@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class dht11 extends Controller
 {
-    public function terimaData($suhu, $kelembaban)
+    public function terimaData($suhu, $kelembaban, $nilaiPh)
     {
 
 
@@ -20,16 +20,18 @@ class dht11 extends Controller
 
 
         $data = [
-            'Suhu' => $suhu,
-            'Kelembaban' => $kelembaban
+            'suhu' => $suhu,
+            'kelembaban' => $kelembaban,
+            'nilai' => $nilaiPh
         ];
 
         DB::table('data')->insert($data);
 
         return response()->json([
             'status' => 200,
-            'Suhu'   => $suhu,
-            'Kelembaban' => $kelembaban
+            'suhu'   => $suhu,
+            'kelembaban' => $kelembaban,
+            'nilai' => $nilaiPh
         ]);
     }
 }

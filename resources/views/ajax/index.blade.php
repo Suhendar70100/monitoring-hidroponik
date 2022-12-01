@@ -23,6 +23,16 @@
         </div>
       </div>
     </div>
+    <div class="col-4">
+      <div class="card">
+        <div class="card-header bg-danger">
+          <h4 class="card-title text-center">Nilai PH</h4>
+        </div>
+        <div class="card-body">
+          <h4 class="display-4" id="nilaiPh"></h4>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="row d-flex vh-100 justify-content-center align-items-center">
     <div class="col-6 w-100">
@@ -34,8 +44,7 @@
 @endsection
 @push('js')
 <script>
-
-   $(document).ready(function () {
+  $(document).ready(function () {
 
         setInterval(() => {
             updateData();
@@ -52,6 +61,14 @@ setInterval(() => {
 
 });
 
+$(document).ready(function () {
+
+setInterval(() => {
+    updateData();
+}, 1000);
+
+});
+
    function updateData(){
     $.ajax({
         type: "get",
@@ -60,13 +77,13 @@ setInterval(() => {
         success: function (response) {
             $('#suhu').html(response.data.suhu);
             $('#kelembaban').html(response.data.kelembaban);
+            $('#nilaiPh').html(response.data.nilai_ph);
         }
     });
    }
 </script>
 
 <script>
-
   var options = {
     chart: {
       type: 'area',
@@ -91,7 +108,7 @@ setInterval(() => {
       data: @json($suhu)
     }, {
         name: 'Kelembaban',
-      data: @json($kelembaban)
+        data: @json($kelembaban)
     }],
   }
 
