@@ -1,0 +1,442 @@
+/* body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #101010;
+    font-family: sans-serif;
+} */
+
+/* CARD STYLING */
+.containers {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.containers .cards {
+    display: flex;
+    position: relative;
+    width: 250px;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* background: linear-gradient(0deg, #1b1b1b, #222, #1b1b1b); */
+    /* border-radius: 4px; */
+    overflow: hidden;
+    transition: 0.5s;
+    margin-top: 35px;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow: 12px 12px 24px #bebebe,
+        -12px -12px 24px #ffffff;
+}
+
+.containers .cards:hover {
+    transform: translateY(-10px);
+    /* box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); */
+    transition: 0.5s;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow: 18px 18px 36px #bebebe,
+        -18px -18px 36px #ffffff;
+}
+
+.containers .cards:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    pointer-events: none;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+/* PERCENT STYLING */
+.percent {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 50px #000;
+    background: #222;
+    z-index: 1000;
+}
+
+.percent .number {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.cards:hover .percent .number {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.percent .number h2 {
+    color: #777;
+    font-size: 40px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+.cards:hover .percent .number h2 {
+    color: #fff;
+    font-size: 45px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+.percent .number h2 span {
+    color: #777;
+    font-size: 24px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+.cards:hover .percent .number h2 span {
+    color: #fff;
+}
+
+.text {
+    position: relative;
+    margin-top: 20px;
+    color: #777;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.cards:hover .text {
+    position: relative;
+    margin-top: 20px;
+    color: #444;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+/* SVG STYLING */
+.icon {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    z-index: 1000;
+}
+
+.icon circle {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: #191919;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+
+.icon circle:nth-child(2) {
+    stroke-dasharray: 440;
+    stroke-dashoffset: calc(440 - (440 * 100) / 100);
+}
+
+.cards:nth-child(1) .icon circle:nth-child(2) {
+    stroke: #0083ff;
+}
+
+/* * {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} */
+/* :root {
+    font-size: calc(48px + (60 - 48)*(100vw - 320px)/(1024 - 320));
+} */
+
+/* body, input {
+  color: #fff;
+  font: 1em "Helvetica Neue", Helvetica, sans-serif;
+  line-height: 1.5;
+}
+body {
+  background: #575757;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+} */
+/* .toggle,
+.toggle:before,
+.slot__label,
+.curtain {
+    transition-property: background-color, transform, visibility;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in, cubic-bezier(0.6, 0.2, 0.4, 1.5), linear;
+}
+
+.toggle:before,
+.slot,
+.slot__label {
+    display: block;
+}
+
+.toggle:before,
+.curtain {
+    position: absolute;
+}
+
+.toggle:checked,
+.curtain {
+    background-color: #2b7f3a;
+}
+
+.toggle:focus {
+    outline: transparent;
+}
+
+.toggle {
+    border-radius: 0.75em;
+    box-shadow: 0 0 0 0.1em inset;
+    cursor: pointer;
+    position: relative;
+    margin-right: 0.25em;
+    width: 1em;
+    height: 0.50em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.toggle:before {
+    background: currentColor;
+    border-radius: 50%;
+    content: "";
+    top: 0.2em;
+    left: 0.2em;
+    width: 0.5em;
+    height: 0.5em;
+}
+
+.toggle:checked:before {
+    transform: translateX(1.5em);
+}
+
+.toggle:checked~.slot .slot__label,
+.slot__label:nth-child(2) {
+    transform: translateY(-50%) scaleY(0);
+}
+
+.toggle:checked~.slot .slot__label:nth-child(2) {
+    transform: translateY(-100%) scaleY(1);
+}
+
+.toggle:checked~.curtain {
+    transform: scaleX(1);
+}
+
+.slot {
+    color: transparent;
+    font-size: 0.50em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    overflow: hidden;
+    height: 1em;
+    text-indent: -0.9em;
+    -webkit-text-stroke: 0.05em #fff;
+}
+
+.slot__label {
+    transform-origin: 50% 0;
+}
+
+.slot__label:nth-child(2) {
+    transform-origin: 50% 100%;
+}
+
+.curtain {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    z-index: -1;
+} */
+
+.mid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1em;
+}
+
+
+/* Switch starts here */
+.rocker {
+    display: inline-block;
+    position: relative;
+    /*
+    SIZE OF SWITCH
+    ==============
+    All sizes are in em - therefore
+    changing the font-size here
+    will change the size of the switch.
+    See .rocker-small below as example.
+    */
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #888;
+    width: 7em;
+    height: 4em;
+    overflow: hidden;
+    border-bottom: 0.5em solid #eee;
+}
+
+.rocker-small {
+    font-size: 0.75em;
+    /* Sizes the switch */
+    margin: 1em;
+}
+
+.rocker::before {
+    content: "";
+    position: absolute;
+    top: 0.5em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #999;
+    border: 0.5em solid #eee;
+    border-bottom: 0;
+}
+
+.rocker input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch-left,
+.switch-right {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5em;
+    width: 3em;
+    transition: 0.2s;
+}
+
+.switch-left {
+    height: 2.4em;
+    width: 2.75em;
+    left: 0.85em;
+    bottom: 0.4em;
+    background-color: #ddd;
+    transform: rotate(15deg) skewX(15deg);
+}
+
+.switch-right {
+    right: 0.5em;
+    bottom: 0;
+    background-color: #bd5757;
+    color: #fff;
+}
+
+.switch-left::before,
+.switch-right::before {
+    content: "";
+    position: absolute;
+    width: 0.4em;
+    height: 2.45em;
+    bottom: -0.45em;
+    background-color: #ccc;
+    transform: skewY(-65deg);
+}
+
+.switch-left::before {
+    left: -0.4em;
+}
+
+.switch-right::before {
+    right: -0.375em;
+    background-color: transparent;
+    transform: skewY(65deg);
+}
+
+input:checked+.switch-left {
+    background-color: #0084d0;
+    color: #fff;
+    bottom: 0px;
+    left: 0.5em;
+    height: 2.5em;
+    width: 3em;
+    transform: rotate(0deg) skewX(0deg);
+}
+
+input:checked+.switch-left::before {
+    background-color: transparent;
+    width: 3.0833em;
+}
+
+input:checked+.switch-left+.switch-right {
+    background-color: #ddd;
+    color: #888;
+    bottom: 0.4em;
+    right: 0.8em;
+    height: 2.4em;
+    width: 2.75em;
+    transform: rotate(-15deg) skewX(-15deg);
+}
+
+input:checked+.switch-left+.switch-right::before {
+    background-color: #ccc;
+}
+
+/* Keyboard Users */
+input:focus+.switch-left {
+    color: #333;
+}
+
+input:checked:focus+.switch-left {
+    color: #fff;
+}
+
+input:focus+.switch-left+.switch-right {
+    color: #fff;
+}
+
+input:checked:focus+.switch-left+.switch-right {
+    color: #333;
+}

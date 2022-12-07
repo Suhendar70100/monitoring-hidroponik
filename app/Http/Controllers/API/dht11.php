@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class dht11 extends Controller
 {
-    public function terimaData($suhu, $kelembaban, $nilaiPh)
+    public function terimaData($suhu, $kelembaban, $pH)
     {
 
 
@@ -22,7 +22,7 @@ class dht11 extends Controller
         $data = [
             'suhu' => $suhu,
             'kelembaban' => $kelembaban,
-            'nilai' => $nilaiPh
+            'ph' => $pH
         ];
 
         DB::table('data')->insert($data);
@@ -31,7 +31,7 @@ class dht11 extends Controller
             'status' => 200,
             'suhu'   => $suhu,
             'kelembaban' => $kelembaban,
-            'nilai' => $nilaiPh
+            'pH' => $pH
         ]);
     }
 }

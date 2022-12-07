@@ -13,11 +13,11 @@ class SensorController extends Controller
     {
         $suhu = DB::table('data')->select('suhu')->get();
         $kelembaban = DB::table('data')->select('kelembaban')->get();
-        $nilaiPh = DB::table('data')->select('nilai_ph')->get();
+        $pH = DB::table('data')->select('ph')->get();
 
         $valSuhu = [];
         $valKelembaban = [];
-        $valPh = [];
+        $valPH = [];
 
         foreach ($kelembaban as $val) {
             $valKelembaban[] = $val->kelembaban;
@@ -27,14 +27,14 @@ class SensorController extends Controller
             $valSuhu[] = $val->suhu;
         }
 
-        foreach ($nilaiPh as $val) {
-            $valPh[] = $val->nilai_ph;
+        foreach ($pH as $val) {
+            $valPH[] = $val->ph;
         }
 
         $data = [
             'suhu' => $valSuhu,
             'kelembaban' => $valKelembaban,
-            'nilai' => $valPh
+            'pH' => $valPH
         ];
         return view('ajax.index', $data);
     }
@@ -50,11 +50,11 @@ class SensorController extends Controller
     {
         $suhu = DB::table('data')->select('suhu')->get();
         $kelembaban = DB::table('data')->select('kelembaban')->get();
-        $nilaiPh = DB::table('data')->select('nilai_ph')->get();
+        $ph = DB::table('data')->select('ph')->get();
 
         $valSuhu = [];
         $valKelembaban = [];
-        $valPh = [];
+        $valPH = [];
 
         foreach ($kelembaban as $val) {
             $valKelembaban[] = $val->kelembaban;
@@ -64,14 +64,15 @@ class SensorController extends Controller
             $valSuhu[] = $val->suhu;
         }
 
-        foreach ($nilaiPh as $val) {
-            $valPh[] = $val->nilai_ph;
+        foreach ($ph as $val) {
+            $valPH[] = $val->ph;
         }
+
         return json_encode([
             'status'    => 200,
             'suhu'      => $valSuhu,
             'kelembaban' => $valKelembaban,
-            'nilai'     => $valPh
+            'ph' => $valPH
         ]);
     }
 }

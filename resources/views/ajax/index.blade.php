@@ -1,35 +1,79 @@
 @extends('layouts.app')
 @section('content')
 
+
+
 <div>
   <div class="row justify-content-center p-2 mt-5">
     <div class="col-4">
-      <div class="card">
-        <div class="card-header bg-danger">
-          <h4 class="card-title text-center">Suhu</h4>
-        </div>
-        <div class="card-body">
-          <h4 class="display-4" id="suhu"></h4>
-        </div>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="card">
-        <div class="card-header bg-primary">
-          <h4 class="card-title text-center">Kelembaban</h4>
-        </div>
-        <div class="card-body">
-          <h4 class="display-4" id="kelembaban"></h4>
+      <div class="containers">
+        <div class="cards">
+          <div class="box">
+            <div class="percent">
+              <svg class="icon">
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70"></circle>
+              </svg>
+              <div class="number">
+                <h2 id="suhu"><span>%</span></h2>
+              </div>
+            </div>
+            <h2 class="text">Suhu</h2>
+          </div>
         </div>
       </div>
     </div>
     <div class="col-4">
-      <div class="card">
-        <div class="card-header bg-danger">
-          <h4 class="card-title text-center">Nilai PH</h4>
+      <div class="containers">
+        <div class="cards">
+          <div class="box">
+            <div class="percent">
+              <svg class="icon">
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70"></circle>
+              </svg>
+              <div class="number">
+                <h2 id="kelembaban"><span>%</span></h2>
+              </div>
+            </div>
+            <h2 class="text">Kelembaban</h2>
+          </div>
         </div>
-        <div class="card-body">
-          <h4 class="display-4" id="nilaiPh"></h4>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="containers">
+        <div class="cards">
+          <div class="box">
+            <div class="percent">
+              <svg class="icon">
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70"></circle>
+              </svg>
+              <div class="number">
+                <h2 id="nilaiPh"><span>%</span></h2>
+              </div>
+            </div>
+            <h2 class="text">Nilai PH</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="containers">
+        <div class="cards">
+          <div class="box">
+            <div class="mid">
+
+              <label class="rocker">
+                <input id="switcher" type="checkbox">
+                <span class="switch-left">On</span>
+                <span class="switch-right">Off</span>
+              </label>
+
+            </div>
+            <h2 class="text">Water Pump</h2>
+          </div>
         </div>
       </div>
     </div>
@@ -44,6 +88,22 @@
 @endsection
 @push('js')
 <script>
+  const syncSwitch = () => {
+    $.ajax({
+        type: "get",
+        url: "/api/switcher",
+        dataType: "json",
+        success: function (res) {
+          console.log(res);
+          $('#switcher').prop('checked', res.waterpump);
+        }
+      });
+  }
+
+  $(document).ready(function() {
+    syncSwitch();
+  });
+
   $(document).ready(function () {
 
         setInterval(() => {
@@ -55,8 +115,7 @@
    $(document).ready(function () {
 
 setInterval(() => {
-  updateData(); 
-
+  updateData();
 }, 1000);
 
 });
@@ -77,7 +136,7 @@ setInterval(() => {
         success: function (response) {
             $('#suhu').html(response.data.suhu);
             $('#kelembaban').html(response.data.kelembaban);
-            $('#nilaiPh').html(response.data.nilai_ph);
+            $('#nilaiPh').html(response.data.ph);
         }
     });
    }
@@ -119,7 +178,7 @@ setInterval(() => {
   setInterval(() => {
     $.getJSON("/updateGrafik",
       function (data, textStatus, jqXHR) {
-        console.log(data);
+        // console.log(data);
         chart.updateSeries([
           {
             name: 'suhu',
@@ -134,6 +193,15 @@ setInterval(() => {
     );
   }, 1000);
 
-
+  $('#switcher').click(function (e) { 
+    // e.preventDefault();
+    console.log(e.target.checked);
+    $.post( "/api/switcher/store", { 
+      switch: () => e.target.checked ? 1 : 0 
+    })
+    .done(function( data ) {
+      console.log("success");
+    });
+  });
 </script>
 @endpush
