@@ -4,8 +4,10 @@
 
 
 <div>
+  <h1 class="display-5 fw-semibold mt-5 text-center">Automatic <span class="fw-normal">Hydroponic <br> Monitoring</span>
+    System</h1>
   <div class="row justify-content-center p-2 mt-5">
-    <div class="col-4">
+    <div class="col-xs-8 col-lg-3 col-sm-6">
       <div class="containers">
         <div class="cards">
           <div class="box">
@@ -23,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-xs-8 col-lg-3 col-sm-6">
       <div class="containers">
         <div class="cards">
           <div class="box">
@@ -41,7 +43,7 @@
         </div>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-xs-8 col-lg-3 col-sm-6">
       <div class="containers">
         <div class="cards">
           <div class="box">
@@ -59,7 +61,7 @@
         </div>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-xs-8 col-lg-3 col-sm-6">
       <div class="containers">
         <div class="cards">
           <div class="box">
@@ -78,7 +80,7 @@
       </div>
     </div>
   </div>
-  <div class="row d-flex vh-100 justify-content-center align-items-center">
+  <div class="row d-flex mtt-5 justify-content-center align-items-center">
     <div class="col-6 w-100">
       <div id="chart"></div>
     </div>
