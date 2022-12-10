@@ -16,7 +16,7 @@ import {
 } from './scripts/dataSwitch';
 
 document.querySelector('#app').innerHTML = `
-  <h1 class="display-5 fw-semibold mt-5 text-center">Automatic <span class="fw-normal">Hydroponic <br> Monitoring</span> System</h1>
+  <h1 class="display-5 fw-normal mt-5 text-center">Automatic <span class="fw-semibold">Hydroponic <br> Monitoring</span> System</h1>
   <div class="row justify-content-center p-2 mt-5 mx-auto mb-5">
     <div class="col-xs-8 col-lg-3 col-sm-6">
       <div class="containers">
