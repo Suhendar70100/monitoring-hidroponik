@@ -98,7 +98,6 @@ document.querySelector('#app').innerHTML = `
   </div>
 `;
 
-const initSwitch = await switchGet();
 const chartElem = document.getElementById('chart');
 const switchElem = $('#switcher');
 const objElem = {
@@ -107,7 +106,9 @@ const objElem = {
   ph: $('#nilaiPh'),
 };
 
-$(() => {
+$(async () => {
+  const initSwitch = await switchGet();
+
   switchElem.prop('checked', initSwitch.switch === 1);
   switcher(switchElem);
   updateDataCard(objElem);
