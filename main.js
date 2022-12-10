@@ -117,5 +117,8 @@ $(async () => {
 
 setInterval(() => {
   updateDataCard(objElem);
+}, 750);
+
+setInterval(() => {
   ApexGraph(chartElem);
 }, 2500);
