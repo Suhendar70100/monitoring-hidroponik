@@ -98,7 +98,7 @@ document.querySelector('#app').innerHTML = `
   </div>
 `;
 
-const initSwitch = switchGet();
+const initSwitch = await switchGet();
 const chartElem = document.getElementById('chart');
 const switchElem = $('#switcher');
 const objElem = {
