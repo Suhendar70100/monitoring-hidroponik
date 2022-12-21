@@ -27,9 +27,9 @@ float ph7 = 2.8;
 
 const char* ssid = "Galaxy A20s2840";
 const char* pass = "badranaya";
-String host = "https://vnvajtvlrwkttlydzoyy.supabase.co/rest/v1";
+String host = "your URL";
 const char* fingerpr = "C6 82 33 E6 5C 46 AF 27 69 21 FD 90 87 E3 39 08 E6 0A 09 95";
-String SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZudmFqdHZscndrdHRseWR6b3l5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzA1NDY1MjAsImV4cCI6MTk4NjEyMjUyMH0.sDY3tvWM2hcGjzmBHkZSzqCCidrqXtyvK8faDxqw37M";
+String SUPABASE_KEY = "Your API Key";
 const int httpsPort = 443;
 
 DHT dht(DHTPIN, DHTTYPE);
